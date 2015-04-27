@@ -96,8 +96,23 @@ delete '/api/parties/:id' do
   {message: "Party deleted."}.to_json
 end
 # POST	/api/orders	Creates a new order
+post '/api/orders' do
+  orders = Order.all
+  content_type :json
+  orders.to_json
+end
 # PATCH	/api/orders/:id	Change item to no-charge
+patch '/api/orders/:id' do
+  order = Order.find(params[:id].to_i).update(params[:price])
+  content_type :json
+  order.to_json
+end
 # DELETE	/api/orders/:id	Removes an order
+delete '/api/orders/:id' do
+  order = Order.delete(params[:id].to_i)
+  content_type :json
+  order.to_json
+end
 # GET	/api/parties/:id/receipt	Saves the party's receipt data to a file.
 # PATCH	/api/parties/:id/checkout	Marks the party as paid
 # PUT	/api/parties/:id/checkout	Marks the party as paid
