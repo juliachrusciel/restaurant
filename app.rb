@@ -103,7 +103,8 @@ post '/api/orders' do
 end
 # PATCH	/api/orders/:id	Change item to no-charge
 patch '/api/orders/:id' do
-  order = Order.find(params[:id].to_i).update(params[:price])
+  order = Order.find(params[:id].to_i)
+  edit_order = order.update(params[:price])
   content_type :json
   order.to_json
 end
@@ -114,5 +115,20 @@ delete '/api/orders/:id' do
   order.to_json
 end
 # GET	/api/parties/:id/receipt	Saves the party's receipt data to a file.
+get '/api/parties/:id/reciept' do
+
+
+
+  patch '/api/visits/:id' do
+  content_type :json
+  visit = Visit.find(params[:id].to_i)
+  edit_visit = visit.update(params[:visit])
+  edit_visit.to_json(:include=>[:user, :location])
+end
+
+
+  content_type :json
+
+end
 # PATCH	/api/parties/:id/checkout	Marks the party as paid
 # PUT	/api/parties/:id/checkout	Marks the party as paid
