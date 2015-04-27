@@ -23,10 +23,10 @@ end
 
 # GET	/api/foods/:id	A single food item and all the parties that included it
 get '/api/foods/:id' do
-  food = Food.fins(params[:id].to_i)
-  party = Party.find(params[:food])
+  food = Food.find(params[:id].to_i)
+  edit_food = Party.find(params[:food])
   content_type :json
-  food.to_json
+  edit_food.to_json(:include=>[:parties])
 end
 # POST	/api/foods	Creates a new food item
 post '/api/foods' do
@@ -67,9 +67,9 @@ end
 # GET	/api/parties/:id	A single party and all the orders it contains
 get '/api/parties/:id' do
   party = Party.find(params[:id].to_i)
-  order = Order.find(params[:order])
+  edit_party = Order.find(params[:order])
   content_type :json
-  party.to_json
+  edit_party.to_json(:include=>[:order])
 end
 # POST	/api/parties	Creates a new party
 post '/api/parties' do
@@ -116,19 +116,22 @@ delete '/api/orders/:id' do
 end
 # GET	/api/parties/:id/receipt	Saves the party's receipt data to a file.
 get '/api/parties/:id/reciept' do
-
-
-
-  patch '/api/visits/:id' do
+  party = Party.get(params[:id].to_i)
+  edit_party = party.save(params[:check_total])
   content_type :json
-  visit = Visit.find(params[:id].to_i)
-  edit_visit = visit.update(params[:visit])
-  edit_visit.to_json(:include=>[:user, :location])
-end
-
-
-  content_type :json
-
+  edit_party.to_json(:include=>[:food, :price])
 end
 # PATCH	/api/parties/:id/checkout	Marks the party as paid
+patch '/api/parties/:id/checkout' do
+  party = Party.find(params[:id].to_i).update(params[:table_number])
+  party = Party.paid(puts :true)
+  content_type :json
+  party.to_json
+end
 # PUT	/api/parties/:id/checkout	Marks the party as paid
+put '/api/parties/:id/checkout' do
+  party = Party.find(params[:id].to_i).update(params[:table_number])
+  party = Party.paid(puts :true)
+  content_type :json
+  party.to_json
+end
