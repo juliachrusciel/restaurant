@@ -120,9 +120,11 @@ end
 
 # PATCH	/api/orders/:id	Change item to no-charge
 patch '/api/orders/:id' do
-  order = Order.find(params[:food_id].to_i).update(params[:price])
-  puts price = 0
+  order = Order.find(params[:food_id].to_i)
+
+  order.no_charge = true
   order.save!
+  
   content_type :json
   order.to_json(:include=> :foods)
 end

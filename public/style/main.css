@@ -1,3 +1,85 @@
 body {
   background-color: lightblue;
+  background-image: url(http://i.imgur.com/BVsUxgo.jpg);
+  background-size: 100%;
+  margin: 4% 4% 8% 8%;
+}
+h4 {
+  text-align: right;
+  display: block;
+  color: white;
+  font-family: 'Playfair Display', 'Calibri', serif;
+  font-size: 80px;
+  padding: 5px;
+}
+.party-section {
+  background-color: rgba(92, 92, 92, 0.6);
+  float: left;
+  width: 20%;
+  height: 45%;
+  margin: 1% 2% 2% 2%;
+  text-align: left;
+  display: block;
+  font-family: 'Lato', 'Calibri' sans-serif;
+  font-size: 17px;
+  color: white;
+  padding: 1% 3% 3% 3%;
+}
+.order-section {
+  background-color: rgba(92, 92, 92, 0.6);
+  float: left;
+  width: 20%;
+  height: 45%;
+  margin: 1% 2% 2% 2%;
+  text-align: left;
+  display: block;
+  font-family: 'Lato', 'Calibri' sans-serif;
+  font-size: 17px;
+  color: white;
+  padding: 1% 3% 3% 3%;
+}
+.bill-section {
+  background-color: rgba(92, 92, 92, 0.6);
+  float: left;
+  width: 20%;
+  height: 45%;
+  margin: 1% 2% 2% 2%;
+  text-align: left;
+  display: block;
+  font-family: 'Lato', 'Calibri' sans-serif;
+  font-size: 17px;
+  color: white;
+  padding: 1% 3% 3% 3%;
+}
+h1{
+  color: white;
+  text-align: center;
+  font-family: 'Playfair Display', 'Calibri' serif;
+  font-size: 30px;
+}
+h2{
+  color: white;
+  text-align: center;
+  font-family: 'Playfair Display', 'Calibri', serif;
+  font-size: 30px;
+}
+h3{
+  color: white;
+  text-align: center;
+  font-family: 'Playfair Display', 'Calibri', serif;
+  font-size: 30px;
+}
+@media screen and (max-width: 300px) {
+    body {
+        background-color: lightblue;
+    }
+    .party-section {
+        float: center;
+    }
+    .order-section {
+        float: center;
+    }
+    .bill-section {
+        float: center;
+    }
 }
