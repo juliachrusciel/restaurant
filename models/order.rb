@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to(:party)
-  has_many(:foods)
+  belongs_to(:food)
 
   def to_s
     self.to_s

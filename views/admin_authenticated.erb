@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Le RESTaurant App</title>
+    <link rel="stylesheet" href="/style/main.css">
+  </head>
+  <body>
+
+    <h2>Hello, Manager! What changes would you like to make?</h2>
+
+    <form action="/sessions" method='post'>
+      <input type="hidden" name='_method' value='delete'>
+      <input type="submit" value='log-out'>
+    </form>
+
+
+    <!-- ****** JS Libraries ****** -->
+    <script src='/javascripts/lib/jquery.js'></script>
+    <script src='/javascripts/lib/underscore.js'></script>
+    <script src='/javascripts/lib/backbone.js'></script>
+
+    <!-- ****** Backbone Models ****** -->
+    <script src='/javascripts/models/FoodModel.js'></script>
+
+    <!-- ****** Backbone Collection ****** -->
+    <script src='/javascripts/collections/FoodCollection.js'></script>
+
+    <!-- ****** Application ****** -->
+    <script src='/javascripts/adminApp.js'></script>
+
+  </body>
+</html>

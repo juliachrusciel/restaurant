@@ -1,4 +1,80 @@
 <html>
+ <head>
+   <title>RESTaurant</title>
+   <link rel="stylesheet" href="/style/main.css">
+ </head>
+ <body>
+
+
+   <ul class='interface-list' id='menu-list'>
+   </ul>
+   <ul class='interface-list' id='party-list'>
+   </ul>
+
+
+   <!-- ****** JS Libraries ****** -->
+   <script src='/javascripts/lib/jquery.js'></script>
+   <script src='/javascripts/lib/underscore.js'></script>
+   <script src='/javascripts/lib/backbone.js'></script>
+
+   <!-- ****** Backbone Models ****** -->
+   <script src='/javascripts/models/FoodModel.js'></script>
+   <script src='/javascripts/models/PartyModel.js'></script>
+
+   <!-- ****** Backbone Collection ****** -->
+   <script src='/javascripts/collections/FoodCollection.js'></script>
+   <script src='/javascripts/collections/PartyCollection.js'></script>
+
+   <!-- ****** Backbone Views ****** -->
+   <script src='/javascripts/views/FoodView.js'></script>
+   <script src='/javascripts/views/PartyView.js'></script>
+   <script src='/javascripts/views/GeneralListView.js'></script>
+
+   <!-- ****** JS Application ****** -->
+   <script src='/javascripts/app.js'></script>
+
+   <section class="header">
+     <h1>Le Restaurant App</h1>
+   </section>
+
+   <section class="party-section">
+     <h1>Parties</h1>
+     <ul>
+       <li>Party 1</li>
+       <li>Party 2</li>
+       <li>Party 3</li>
+     </ul>
+   </section>
+
+   <section class="order-section">
+     <h1>Order</h1>
+     <ul>
+       <li>Food 1</li>
+       <li>Food 2</li>
+       <li>Food 3</li>
+     </ul>
+   </section>
+
+   <section class="bill-section">
+     <h1>Check, please!</h1>
+     <ul>
+       <li>Food item and price 1</li>
+       <li>Food item and price 2</li>
+       <li>Food item and price 3</li>
+       <li>Sum</li>
+       <li>Tip</li>
+     </ul>
+   </section>
+
+
+
+ </body>
+</html>
+
+<!--
+
+
+<html>
   <head>
     <title>Le Restaurant App</title>
     <link rel="stylesheet" href="/style/main.css">
@@ -8,7 +84,7 @@
     <script type="text/javascript" src"/scripts/app.js"></script>
   </head>
   <body>
-    
+
     <section class="header">
       <h1>Le Restaurant App</h1>
     </section>
@@ -43,4 +119,4 @@
     </section>
 
   </body>
-</html>
+</html> -->

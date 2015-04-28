@@ -24,10 +24,10 @@ end
 # GET	/api/foods/:id	A single food item and all the parties that included it
 get '/api/foods/:id' do
   food = Food.find(params[:id].to_i)
-  edit_food = Party.find(params[:food])
   content_type :json
-  edit_food.to_json(:include=>[:parties])
+  food.to_json(:include=>:parties)
 end
+
 # POST	/api/foods	Creates a new food item
 post '/api/foods' do
   food = Food.create(params[:food])
@@ -67,9 +67,8 @@ end
 # GET	/api/parties/:id	A single party and all the orders it contains
 get '/api/parties/:id' do
   party = Party.find(params[:id].to_i)
-  edit_party = Order.find(params[:order])
   content_type :json
-  edit_party.to_json(:include=>[:order])
+  party.to_json(:include=>[:orders])
 end
 # POST	/api/parties	Creates a new party
 post '/api/parties' do
@@ -95,19 +94,41 @@ delete '/api/parties/:id' do
   content_type :json
   {message: "Party deleted."}.to_json
 end
-# POST	/api/orders	Creates a new order
-post '/api/orders' do
+
+##############################################
+#get all orders
+get '/api/orders' do
   orders = Order.all
   content_type :json
-  orders.to_json
+  orders.to_json(:include => :food)
 end
-# PATCH	/api/orders/:id	Change item to no-charge
-patch '/api/orders/:id' do
+
+#get a single order
+get '/api/orders/:id' do
   order = Order.find(params[:id].to_i)
-  edit_order = order.update(params[:price])
   content_type :json
   order.to_json
 end
+
+# POST	/api/orders	Creates a new order
+post '/api/orders' do
+  order = Order.create(params[:order])
+  content_type :json
+  order.to_json
+end
+####################################################
+
+# PATCH	/api/orders/:id	Change item to no-charge
+patch '/api/orders/:id' do
+  order = Order.find(params[:food_id].to_i).update(params[:price])
+  puts price = 0
+  order.save!
+  content_type :json
+  order.to_json(:include=> :foods)
+end
+
+# order = Order.find(params[:food_id].to_i).find(params[:name]).update(params[:price])
+
 # DELETE	/api/orders/:id	Removes an order
 delete '/api/orders/:id' do
   order = Order.delete(params[:id].to_i)
@@ -116,15 +137,21 @@ delete '/api/orders/:id' do
 end
 # GET	/api/parties/:id/receipt	Saves the party's receipt data to a file.
 get '/api/parties/:id/reciept' do
-  party = Party.get(params[:id].to_i)
-  edit_party = party.save(params[:check_total])
+  party = Party.find(params[:id].to_i)
+  party = Party.find(params[:check_total])
+  party.save!
   content_type :json
-  edit_party.to_json(:include=>[:food, :price])
+  party.to_json(:include=>[:food, :check_total])
+  # party = Party.get(params[:id].to_i)
+  # edit_party = party.save(params[:check_total])
+  # content_type :json
+  # edit_party.to_json(:include=>[:food, :price])
 end
 # PATCH	/api/parties/:id/checkout	Marks the party as paid
 patch '/api/parties/:id/checkout' do
-  party = Party.find(params[:id].to_i).update(params[:table_number])
-  party = Party.paid(puts :true)
+  party = Party.find(params[:id].to_i)
+  party.paid = true
+  party.save!
   content_type :json
   party.to_json
 end
