@@ -15,8 +15,8 @@ h4 {
 .party-section {
   background-color: rgba(81, 43, 26, 0.7);
   float: left;
-  width: 20%;
-  height: 45%;
+  width: 250px;
+  height: 350px;
   margin: 1% 2% 2% 2%;
   text-align: left;
   display: block;
@@ -28,8 +28,8 @@ h4 {
 .order-section {
   background-color: rgba(81, 43, 26, 0.7);
   float: left;
-  width: 20%;
-  height: 45%;
+  width: 250px;
+  height: 350px;
   margin: 1% 2% 2% 2%;
   text-align: left;
   display: block;
@@ -41,8 +41,8 @@ h4 {
 .bill-section {
   background-color: rgba(81, 43, 26, 0.7);
   float: left;
-  width: 20%;
-  height: 45%;
+  width: 250px;
+  height: 350px;
   margin: 1% 2% 2% 2%;
   text-align: left;
   display: block;
@@ -68,6 +68,47 @@ h3{
   text-align: center;
   font-family: 'Playfair Display', 'Calibri', serif;
   font-size: 30px;
+}
+#party-action {
+  position: relative;
+  left: 60px;
+  top: 110px;
+  color: rgb(217, 236, 198);
+  font-family: 'Lato', 'Calibri' sans-serif;
+}
+#party-button{
+  position: relative;
+  right: 105px;
+  top: 30px;
+  background-color: white;
+  color: rgb(175, 55, 21);
+  font-family: 'Playfair Display', 'Calibri' serif;
+}
+#order-add-button{
+  position: relative;
+  left: 45px;
+  right: 45px;
+  top: 160px;
+  background-color: white;
+  color: rgb(175, 55, 21);
+  font-family: 'Playfair Display', 'Calibri' serif;
+}
+#order-modify-button{
+  position: relative;
+  left: 45px;
+  right: 45px;
+  top: 160px;
+  background-color: white;
+  color: rgb(175, 55, 21);
+  font-family: 'Playfair Display', 'Calibri' serif;
+}
+#bill-button{
+  position: relative;
+  left: 90px;
+  top: 110px;
+  background-color: white;
+  color: rgb(175, 55, 21);
+  font-family: 'Playfair Display', 'Calibri' serif;
 }
 @media screen and (max-width: 300px) {
     body {

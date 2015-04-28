@@ -39,23 +39,31 @@
     // what collection will it use?
     // what modelView will it use?
     // what el should it use?
-  var FoodView = Backbone.View.extend({
+  app.FoodViewTemplate = $('#test-template').html();
+  app.FoodView = Backbone.View.extend({
     tagName: "section",
     className: "order-section",
-    template: _.template(),
-
+    template: _.template(app.FoodViewTemplate),
+    events: {
+      "create a food" : "submit"
+    },
     initialize: function(){
       this.render();
     },
     render: function() {
       var data = {
         id: "FoodButton",
-        submitButton: "New Food Item",
+        submitButton: "Add Food Item",
       }
       this.$el.html(this.template(data));
     }
     submit: function() {
-
+      console.log("A new food item was added.")
+      app.foods.create({
+        name: "kale chip salted caramel soy milk latte",
+        price: 42,
+        cuisine: "hipster food",
+      });
     }
   });
 
@@ -63,7 +71,26 @@
     // what collection will it use?
     // what modelView will it use?
     // what el should it use?
+    var PartyView = Backbone.View.extend({
+      tagName: "section",
+      className: "party-section",
+      template: _.template(),
 
+      initialize: function(){
+        this.render();
+      },
+      render: function() {
+        var data = {
+          id: "PartyButton",
+          submitButton: "Add Party",
+        }
+        this.$el.html(this.template(data));
+      }
+      submit: function() {
+        console.log("A new party was added.")
+      }
+    });
 
   // Ask the foods collection to fetch
+
   // Ask the parties collection to fetch

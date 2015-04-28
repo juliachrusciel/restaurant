@@ -13,7 +13,8 @@
    <ul class='interface-list' id='party-list'>
    </ul>
 
-
+   <!-- ****** JS Templates ****** -->
+   <%= erb :templates %>
    <!-- ****** JS Libraries ****** -->
    <script src='/javascripts/lib/jquery.js'></script>
    <script src='/javascripts/lib/underscore.js'></script>
@@ -46,6 +47,12 @@
        <li>Party 2</li>
        <li>Party 3</li>
      </ul>
+     <form action="/" id = "party-action" method="post">
+       <input type = "text" placeholder = "Party Name">
+       <input type = "number" placeholder = "Number of People">
+       <button id = "party-button">Add Party</button>
+     </form>
+
    </section>
 
    <section class="order-section">
@@ -55,6 +62,8 @@
        <li>Food 2</li>
        <li>Food 3</li>
      </ul>
+     <button id = "order-add-button">Add Order</button>
+     <button id = "order-modify-button">Modify Order</button>
    </section>
 
    <section class="bill-section">
@@ -66,6 +75,7 @@
        <li>Sum</li>
        <li>Tip</li>
      </ul>
+     <button id = "bill-button">Pay Bill</button>
    </section>
 
 
