@@ -83,6 +83,7 @@ h3{
   background-color: white;
   color: rgb(175, 55, 21);
   font-family: 'Playfair Display', 'Calibri' serif;
+  font-size: 13px;
 }
 #order-add-button{
   position: relative;
@@ -92,6 +93,7 @@ h3{
   background-color: white;
   color: rgb(175, 55, 21);
   font-family: 'Playfair Display', 'Calibri' serif;
+  font-size: 13px;
 }
 #order-modify-button{
   position: relative;
@@ -101,6 +103,7 @@ h3{
   background-color: white;
   color: rgb(175, 55, 21);
   font-family: 'Playfair Display', 'Calibri' serif;
+  font-size: 13px;
 }
 #bill-button{
   position: relative;
@@ -109,6 +112,7 @@ h3{
   background-color: white;
   color: rgb(175, 55, 21);
   font-family: 'Playfair Display', 'Calibri' serif;
+  font-size: 13px;
 }
 @media screen and (max-width: 300px) {
     body {

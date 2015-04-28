@@ -17,43 +17,79 @@ class PartiesController < Sinatra::Base
 
 
   # ***** Routes: /api/parties *****
-  get '/' do
+
+  get '/api/parties' do
     parties = Party.all
     content_type :json
-    parties.to_json(include: :foods)
+    parties.to_json
   end
-
-  get '/:id' do
-    party = Party.find(params[:id])
+  # GET	/api/parties/:id	A single party and all the orders it contains
+  get '/api/parties/:id' do
+    party = Party.find(params[:id].to_i)
     content_type :json
-    party.to_json(include: :foods)
+    party.to_json(:include=>[:orders])
   end
-
-  post '/' do
-    party = Party.create(party_params)
+  # POST	/api/parties	Creates a new party
+  post '/api/parties' do
+    party = Party.create(params[:party])
     content_type :json
-    party.to_json(include: :foods)
+    party.to_json
   end
-
-  patch '/:id' do
-    party = Party.find(params[:id])
-    party.update(party_params)
+  # PATCH	/api/parties/:id	Updates a party's details
+  patch '/api/parties/:id' do
+    party = Party.find(params[:id].to_i).update(params[:party])
     content_type :json
-    party.to_json(include: :foods)
+    party.to_json
   end
-
-  put '/:id' do
-    party = Party.find(params[:id])
-    party.update(party_params)
+  # PUT	/api/parties/:id	Updates a party's details
+  put '/api/parties/:id' do
+    party = Party.find(params[:id].to_i).update(params[:party])
     content_type :json
-    party.to_json(include: :foods)
+    party.to_json
   end
-
-  delete '/:id' do
-     Party.destroy(params[:id])
-     content_type :json
-     {success: "ok"}.to_json
+  # DELETE	/api/parties/:id	Delete a party
+  delete '/api/parties/:id' do
+    party = Party.delete(params[:id].to_i)
+    content_type :json
+    {message: "Party deleted."}.to_json
   end
+  # get '/' do
+  #   parties = Party.all
+  #   content_type :json
+  #   parties.to_json(include: :foods)
+  # end
+  #
+  # get '/:id' do
+  #   party = Party.find(params[:id])
+  #   content_type :json
+  #   party.to_json(include: :foods)
+  # end
+  #
+  # post '/' do
+  #   party = Party.create(party_params)
+  #   content_type :json
+  #   party.to_json(include: :foods)
+  # end
+  #
+  # patch '/:id' do
+  #   party = Party.find(params[:id])
+  #   party.update(party_params)
+  #   content_type :json
+  #   party.to_json(include: :foods)
+  # end
+  #
+  # put '/:id' do
+  #   party = Party.find(params[:id])
+  #   party.update(party_params)
+  #   content_type :json
+  #   party.to_json(include: :foods)
+  # end
+  #
+  # delete '/:id' do
+  #    Party.destroy(params[:id])
+  #    content_type :json
+  #    {success: "ok"}.to_json
+  # end
 
 
 end

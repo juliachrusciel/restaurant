@@ -12,10 +12,6 @@ require './models/party'
 
 get '/' do
   erb :index
-  # if current_user
-  #   erb :index
-  # else new_user
-  #   erb:
 end
 
 # GET	/api/foods	All food items available
@@ -59,8 +55,8 @@ delete '/api/foods/:id' do
 end
 
 
-###############################################################
-####Party######################################################
+##############################################################
+###Party######################################################
 
 # GET	/api/parties	All parties
 get '/api/parties' do
@@ -99,7 +95,7 @@ delete '/api/parties/:id' do
   {message: "Party deleted."}.to_json
 end
 
-##############################################
+#############################################
 #get all orders
 get '/api/orders' do
   orders = Order.all

@@ -16,43 +16,70 @@ class OrdersController < Sinatra::Base
   end
 
 
-  # ***** Routes: /api/orders *****
-  get '/' do
+  # ***** Routes: /api/orders ****
+  #get all orders
+  get '/api/orders' do
     orders = Order.all
     content_type :json
-    orders.to_json
+    orders.to_json(:include => :food)
   end
 
-  get '/:id' do
-    order = Order.find(params[:id])
+  #get a single order
+  get '/api/orders/:id' do
+    order = Order.find(params[:id].to_i)
     content_type :json
     order.to_json
   end
 
-  post '/' do
-    order = Order.create(order_params)
+  # POST	/api/orders	Creates a new order
+  post '/api/orders' do
+    order = Order.create(params[:order])
     content_type :json
     order.to_json
   end
 
-  patch '/:id' do
-    order = Order.find(params[:id])
-    order.update(order_params)
+  # DELETE	/api/orders/:id	Removes an order
+  delete '/api/orders/:id' do
+    order = Order.delete(params[:id].to_i)
     content_type :json
     order.to_json
   end
-
-  put '/:id' do
-    order = Order.find(params[:id])
-    order.update(order_params)
-    content_type :json
-    order.to_json
-  end
-
-  delete '/:id' do
-     Order.destroy(params[:id])
-     content_type :json
-     {success: "ok"}.to_json
-  end
+  # get '/' do
+  #   orders = Order.all
+  #   content_type :json
+  #   orders.to_json
+  # end
+  #
+  # get '/:id' do
+  #   order = Order.find(params[:id])
+  #   content_type :json
+  #   order.to_json
+  # end
+  #
+  # post '/' do
+  #   order = Order.create(order_params)
+  #   content_type :json
+  #   order.to_json
+  # end
+  #
+  # patch '/:id' do
+  #   order = Order.find(params[:id])
+  #   order.update(order_params)
+  #   content_type :json
+  #   order.to_json
+  # end
+  #
+  # put '/:id' do
+  #   order = Order.find(params[:id])
+  #   order.update(order_params)
+  #   content_type :json
+  #   order.to_json
+  # end
+  #
+  # delete '/:id' do
+  #    Order.destroy(params[:id])
+  #    content_type :json
+  #    {success: "ok"}.to_json
+  # end
 
 end
