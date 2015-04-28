@@ -12,6 +12,10 @@ require './models/party'
 
 get '/' do
   erb :index
+  # if current_user
+  #   erb :index
+  # else new_user
+  #   erb:
 end
 
 # GET	/api/foods	All food items available
@@ -124,7 +128,7 @@ patch '/api/orders/:id' do
 
   order.no_charge = true
   order.save!
-  
+
   content_type :json
   order.to_json(:include=> :foods)
 end

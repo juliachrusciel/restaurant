@@ -13,7 +13,7 @@ h4 {
   padding: 5px;
 }
 .party-section {
-  background-color: rgba(92, 92, 92, 0.6);
+  background-color: rgba(81, 43, 26, 0.7);
   float: left;
   width: 20%;
   height: 45%;
@@ -26,7 +26,7 @@ h4 {
   padding: 1% 3% 3% 3%;
 }
 .order-section {
-  background-color: rgba(92, 92, 92, 0.6);
+  background-color: rgba(81, 43, 26, 0.7);
   float: left;
   width: 20%;
   height: 45%;
@@ -39,7 +39,7 @@ h4 {
   padding: 1% 3% 3% 3%;
 }
 .bill-section {
-  background-color: rgba(92, 92, 92, 0.6);
+  background-color: rgba(81, 43, 26, 0.7);
   float: left;
   width: 20%;
   height: 45%;
@@ -52,19 +52,19 @@ h4 {
   padding: 1% 3% 3% 3%;
 }
 h1{
-  color: white;
+  color: rgb(217, 236, 198);
   text-align: center;
   font-family: 'Playfair Display', 'Calibri' serif;
   font-size: 30px;
 }
 h2{
-  color: white;
+  color: rgb(217, 236, 198);
   text-align: center;
   font-family: 'Playfair Display', 'Calibri', serif;
   font-size: 30px;
 }
 h3{
-  color: white;
+  color: rgb(217, 236, 198);
   text-align: center;
   font-family: 'Playfair Display', 'Calibri', serif;
   font-size: 30px;
