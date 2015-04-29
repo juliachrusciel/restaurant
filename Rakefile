@@ -16,9 +16,21 @@ require './models/user'
 namespace :db do
   desc 'Generate Random Data'
   task :junk_data do
-    food = Food.create({name: 'Banana'})
-    party = Party.create({table_number: 4})
-    Order.create({food: food, party: party})
+    f1 = Food.create({name: 'Banana', price: 2.35})
+    f2 = Food.create({name: 'Cheese', price: 4.50})
+    f3 = Food.create({name: 'Salad', price: 7.75})
+    f4 = Food.create({name: 'Bread', price: 1.25})
+
+    p1= Party.create({table_number: 1})
+    p2= Party.create({table_number: 2})
+    p3= Party.create({table_number: 3})
+    p4= Party.create({table_number: 4})
+
+    p1.orders.create({food: f1})
+    p1.orders.create({food: f2})
+    p1.orders.create({food: f2})
+
+    p4.orders.create({food: f4})
   end
 
   desc 'Clear Database'

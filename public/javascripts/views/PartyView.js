@@ -5,7 +5,7 @@ app.PartyView = Backbone.View.extend({
     this.listenTo(this.model,'change', this.render);
     this.listenTo(this.model,'delete', this.remove);
   },
-  template: _.template('<h3><%= table_number %><button class="select-party">Select</button>'),
+  template: _.template( $('#party-template').html() ),
   tagName: 'li',
   className: 'party',
   render: function(){
@@ -14,12 +14,18 @@ app.PartyView = Backbone.View.extend({
     return this;
   },
   renderFoodList: function(){
-    var foods = this.model.get('foods')
-    var foodList = $('<ul>');
-    for (var i = 0; i < foods.length; i++) {
-      foodList.append( $('<li>').text( foods[i]['name'] ) );
+    var id = this.model.get('id'); // party id - get from server with ajax or model.fetch?
+    console.log('render food list...');
+    console.log(this.model.attributes);
+    if (this.model.attributes.foods) {
+      var foods = this.model.get('foods')
+      var foodList = $('<ul>');
+      for (var i = 0; i < foods.length; i++) {
+        foodList.append( $('<li>').text( foods[i]['name'] ) );
+      }
+      this.$el.append(foodList);
     }
-    this.$el.append(foodList);
+
   },
   events:{
     'click .select-party': 'selectParty'

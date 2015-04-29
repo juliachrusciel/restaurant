@@ -8,10 +8,7 @@
  <body>
 
 
-   <ul class='interface-list' id='menu-list'>
-   </ul>
-   <ul class='interface-list' id='party-list'>
-   </ul>
+
 
    <!-- ****** JS Templates ****** -->
    <%= erb :templates %>
@@ -42,38 +39,33 @@
 
    <section class="party-section">
      <h1>Parties</h1>
-     <ul>
-       <li>Party 1</li>
-       <li>Party 2</li>
-       <li>Party 3</li>
+     <ul class='interface-list' id='party-list'>
+       loading...
      </ul>
-     <form action="/" id = "party-action" method="post">
+
+     <!-- <ul id="party-list">
+     </ul> -->
+     <!-- <form action="/" id = "party-action" method="post">
        <input type = "text" placeholder = "Party Name">
        <input type = "number" placeholder = "Number of People">
        <button id = "party-button">Add Party</button>
-     </form>
+     </form> -->
 
    </section>
 
-   <section class="order-section">
-     <h2>Order</h2>
-     <ul id='food-list'>
-
+   <section class="food-section">
+     <h2>Menu</h2>
+     <ul class='interface-list' id='menu-list'>
+       loading...
      </ul>
-     <button id = "order-add-button">Add Order</button>
-     <button id = "order-modify-button">Modify Order</button>
+     <!-- <button id = "food-add-button">Add Order</button>
+     <button id = "order-modify-button">Modify Order</button> -->
    </section>
 
    <section class="bill-section">
      <h3>Check, please!</h3>
-     <ul>
-       <li>Food item and price 1</li>
-       <li>Food item and price 2</li>
-       <li>Food item and price 3</li>
-       <li>Sum</li>
-       <li>Tip</li>
-     </ul>
-     <button id = "bill-button">Pay Bill</button>
+
+     <button id = "bill-button">Submit Order</button>
    </section>
 
 

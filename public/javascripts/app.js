@@ -43,7 +43,7 @@ $(document).ready(function(){
   app.foodListPainter = new app.GeneralListView({
     collection: app.foods,
     modelView: app.FoodView,
-    el: $('#food-list')
+    el: $('#menu-list')
   });
 
   app.foods.fetch();
@@ -56,6 +56,27 @@ $(document).ready(function(){
 
   app.parties.fetch();
 
+  $('#bill-button').on('click', function(){
+
+    var partyId = app.partySelection.attributes.id;
+    var foodId = app.foodSelection.attributes.id;
+
+    console.log("did we make it here yet?")
+
+    $.ajax({
+      method: 'post',
+      url: '/api/orders',
+      data: {order: { party_id: partyId, food_id: foodId }},
+      success: function() {
+        console.log("we are winners")
+        app.parties.fetch( {reset: true} );
+
+        $('.food-selected').removeClass('food-selected');
+        $('.party-selected').removeClass('.party-selected');
+      }
+    });
+
+  });
 });
   // app.FoodViewTemplate = $('#test-template').html();
   // app.FoodView = Backbone.View.extend({

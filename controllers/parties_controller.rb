@@ -21,7 +21,8 @@ class PartiesController < Sinatra::Base
   get '/api/parties' do
     parties = Party.all
     content_type :json
-    parties.to_json
+    parties.to_json(include: :foods)
+    akugsdf
   end
   # GET	/api/parties/:id	A single party and all the orders it contains
   get '/api/parties/:id' do
