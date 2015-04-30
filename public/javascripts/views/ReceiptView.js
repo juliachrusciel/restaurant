@@ -9,9 +9,9 @@ app.ReceiptView = Backbone.View.extend({
   events: {
       "click .select-bill": "render"
   },
-  template: _.template( $('#reciept-template').html() ),
+  template: _.template( $('#receipt-template').html() ),
   tagName: 'li',
-  className: 'reciept',
+  className: 'receipt',
   render: function(){
     this.$el.append( this.template( this.model.attributes ) );
     $('#receipt-printout').html(this.$el.html());
@@ -25,15 +25,15 @@ app.ReceiptView = Backbone.View.extend({
 
 
   // app.myReceiptView = new app.ReceiptView...
-  app.myRecieptView = new app.ReceiptView();
+  app.myReceiptView = new app.ReceiptView();
 
   // create a new model
     // this model should contain:
     // each item + their price
     // render the item + the price
     // <%= itemName %> - $<%= price %>
-  app.RecieptModel = Backbone.Model.extend({
-    
+  app.ReceiptModel = Backbone.Model.extend({
+
     });
 
   // put that template rendered into some area below the button

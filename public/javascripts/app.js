@@ -74,12 +74,31 @@ $(document).ready(function(){
 
         $('.food-selected').removeClass('food-selected');
         $('.party-selected').removeClass('.party-selected');
-
         // receiptView init and the render call should go here
         //app.myReceiptModel = new app.ReceiptModel();
         //app.myReceiptView = new app.ReceiptView({ model: app.myReceiptModel });
 
         // put the $el inside of your receipt container here
+      }
+    });
+
+    $(document).ready(function(){
+    app.myReceiptModel = new app.ReceiptModel();
+
+    app.myReceiptView = new app.ReceiptView({ model: app.myReceiptModel });
+
+    });
+
+
+    $.ajax({
+      method: 'post',
+      url: 'api/orders',
+      data: {order: {party_id: partyId, food_id: foodId }},
+      success: function() {
+        console.log("Show me the money!")
+        app.parties.fetch( {reset: true} );
+
+        $('.receipt-selected').removeClass('receipt-selected');
       }
     });
 
