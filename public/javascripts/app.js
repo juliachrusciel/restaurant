@@ -59,6 +59,7 @@ $(document).ready(function(){
   $('#bill-button').on('click', function(){
 
     var partyId = app.partySelection.attributes.id;
+    // parties list
     var foodId = app.foodSelection.attributes.id;
 
     console.log("did we make it here yet?")
@@ -73,6 +74,9 @@ $(document).ready(function(){
 
         $('.food-selected').removeClass('food-selected');
         $('.party-selected').removeClass('.party-selected');
+
+        // receiptView init and the render call should go here
+        // put the $el inside of your receipt container here
       }
     });
 
