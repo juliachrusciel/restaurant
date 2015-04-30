@@ -76,6 +76,9 @@ $(document).ready(function(){
         $('.party-selected').removeClass('.party-selected');
 
         // receiptView init and the render call should go here
+        //app.myReceiptModel = new app.ReceiptModel();
+        //app.myReceiptView = new app.ReceiptView({ model: app.myReceiptModel });
+
         // put the $el inside of your receipt container here
       }
     });
