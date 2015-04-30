@@ -62,25 +62,25 @@ end
 get '/api/parties' do
   parties = Party.all
   content_type :json
-  parties.to_json(include: :foods)
+  parties.to_json(include: :foods, methods: :price)
 end
 # GET	/api/parties/:id	A single party and all the orders it contains
 get '/api/parties/:id' do
   party = Party.find(params[:id].to_i)
   content_type :json
-  party.to_json(:include=>[:orders])
+  party.to_json(include: :foods, methods: :price)
 end
 # POST	/api/parties	Creates a new party
 post '/api/parties' do
   party = Party.create(params[:party])
   content_type :json
-  party.to_json
+  party.to_json(include: :foods, methods: :price)
 end
 # PATCH	/api/parties/:id	Updates a party's details
 patch '/api/parties/:id' do
   party = Party.find(params[:id].to_i).update(params[:party])
   content_type :json
-  party.to_json
+  party.to_json(include: :foods, methods: :price)
 end
 # PUT	/api/parties/:id	Updates a party's details
 put '/api/parties/:id' do
@@ -138,7 +138,7 @@ delete '/api/orders/:id' do
   order.to_json
 end
 # GET	/api/parties/:id/receipt	Saves the party's receipt data to a file.
-get '/api/parties/:id/reciept' do
+get '/api/parties/:id/receipt' do
   party = Party.find(params[:id].to_i)
   party = Party.find(params[:check_total])
   party.save!

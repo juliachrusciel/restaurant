@@ -22,6 +22,7 @@ h4 {
   font-size: 14px;
   text-align:center;
   list-style-type: none;
+  margin-bottom: 30px;
 }
 .party-section {
   background-color: rgba(94, 34, 7, 0.8);
@@ -133,9 +134,17 @@ h3{
   font-family: 'Playfair Display', 'Calibri' serif;
   font-size: 13px;
 }*/
+#receipt-button{
+  position: relative;
+  left: 50px;
+  background-color: white;
+  color: rgb(175, 55, 21);
+  font-family: 'Playfair Display', 'Calibri' serif;
+  font-size: 13px;
+}
 #bill-button{
   position: relative;
-  left: 85px;
+  left: 30px;
   background-color: white;
   color: rgb(175, 55, 21);
   font-family: 'Playfair Display', 'Calibri' serif;

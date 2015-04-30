@@ -26,11 +26,11 @@ namespace :db do
     p3= Party.create({table_number: 3})
     p4= Party.create({table_number: 4})
 
-    p1.orders.create({food: f1})
-    p1.orders.create({food: f2})
-    p1.orders.create({food: f2})
-
-    p4.orders.create({food: f4})
+    # p1.orders.create({food: f1})
+    # p1.orders.create({food: f2})
+    # p1.orders.create({food: f2})
+    #
+    # p4.orders.create({food: f4})
   end
 
   desc 'Clear Database'

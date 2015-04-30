@@ -21,8 +21,7 @@ class PartiesController < Sinatra::Base
   get '/api/parties' do
     parties = Party.all
     content_type :json
-    parties.to_json(include: :foods)
-    akugsdf
+    parties.to_json(include: :foods, methods: :price)
   end
   # GET	/api/parties/:id	A single party and all the orders it contains
   get '/api/parties/:id' do
@@ -35,6 +34,13 @@ class PartiesController < Sinatra::Base
     party = Party.create(params[:party])
     content_type :json
     party.to_json
+  end
+  #POST /api/parties/calculate Calculates the sum of a party's bill by adding all of the prices of the foods which that party ordered
+  post '/api/parties/:id/total' do
+    party = Party.find(params[:id].to_i).update(params[:check_total])
+    party = Party.add(params[:foods])
+    content_type :json
+    party.to_json(include: :foods, methods: :price)
   end
   # PATCH	/api/parties/:id	Updates a party's details
   patch '/api/parties/:id' do

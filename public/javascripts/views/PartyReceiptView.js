@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.ReceiptView = Backbone.View.extend({
+app.PartyReceiptView = Backbone.View.extend({
   // first off - you will instantiate me when clicking on that submit button
   initialize: function(){
     this.listenTo(this.model, 'change', this.render);
@@ -11,10 +11,9 @@ app.ReceiptView = Backbone.View.extend({
   },
   template: _.template( $('#receipt-template').html() ),
   tagName: 'li',
-  className: 'receipt',
+  className: 'party-receipt',
   render: function(){
     this.$el.append( this.template( this.model.attributes ) );
-    $('#receipt-container').html(this.$el.html());
     return this;
   },
 

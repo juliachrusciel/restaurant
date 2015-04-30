@@ -6,4 +6,12 @@ class Party < ActiveRecord::Base
     self.to_s
   end
 
+  def price
+    total = 0
+    self.foods.each do |food|
+      total += food.price
+    end
+    total
+  end
+
 end

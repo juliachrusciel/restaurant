@@ -60,8 +60,15 @@ $(document).ready(function(){
     // instantiate and render
 
     // receiptmodel + receipt view
-    app.activeReceiptModel = new app.ReceiptModel();
-    app.activeReceiptView = new app.ReceiptView({ model: app.activeReceiptModel });
+
+    app.activePartyReceiptView = new app.PartyReceiptView({
+      model: app.partySelection,
+      el: $('#receipt-container')
+    });
+
+    app.activePartyReceiptView.render();
+
+
 
     // kinda like dis:
     // app.activeReceiptModel = new...
@@ -94,18 +101,19 @@ $(document).ready(function(){
       }
     });
 
+      // $('#receipt-button').on('click', function())
 
-    $.ajax({
-      method: 'post',
-      url: 'api/orders',
-      data: {order: {party_id: partyId, food_id: foodId }},
-      success: function() {
-        console.log("Show me the money!")
-        app.parties.fetch( {reset: true} );
-
-        $('.receipt-selected').removeClass('receipt-selected');
-      }
-    });
+    // $.ajax({
+    //   method: 'post',
+    //   url: 'api/orders',
+    //   data: {order: {party_id: partyId, food_id: foodId }},
+    //   success: function() {
+    //     console.log("Show me the money!")
+    //     app.parties.fetch( {reset: true} );
+    //
+    //     $('.receipt-selected').removeClass('receipt-selected');
+    //   }
+    // });
 
   });
 });
