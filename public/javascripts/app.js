@@ -56,6 +56,18 @@ $(document).ready(function(){
 
   app.parties.fetch();
 
+  $("#receipt-button").on('click', function(evt) {
+    // instantiate and render
+
+    // receiptmodel + receipt view
+    app.activeReceiptModel = new app.ReceiptModel();
+    app.activeReceiptView = new app.ReceiptView({ model: app.activeReceiptModel });
+
+    // kinda like dis:
+    // app.activeReceiptModel = new...
+    // app.activeReceiptView = new .. ({ model: app.activeReceiptModel })
+  });
+
   $('#bill-button').on('click', function(){
 
     var partyId = app.partySelection.attributes.id;
@@ -80,13 +92,6 @@ $(document).ready(function(){
 
         // put the $el inside of your receipt container here
       }
-    });
-
-    $(document).ready(function(){
-    app.myReceiptModel = new app.ReceiptModel();
-
-    app.myReceiptView = new app.ReceiptView({ model: app.myReceiptModel });
-
     });
 
 

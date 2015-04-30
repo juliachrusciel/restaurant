@@ -14,26 +14,9 @@ app.ReceiptView = Backbone.View.extend({
   className: 'receipt',
   render: function(){
     this.$el.append( this.template( this.model.attributes ) );
-    $('#receipt-printout').html(this.$el.html());
+    $('#receipt-container').html(this.$el.html());
     return this;
   },
 
 
 });
-
-
-
-
-  // app.myReceiptView = new app.ReceiptView...
-  app.myReceiptView = new app.ReceiptView();
-
-  // create a new model
-    // this model should contain:
-    // each item + their price
-    // render the item + the price
-    // <%= itemName %> - $<%= price %>
-  app.ReceiptModel = Backbone.Model.extend({
-
-    });
-
-  // put that template rendered into some area below the button
